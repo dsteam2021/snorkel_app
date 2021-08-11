@@ -1,4 +1,4 @@
-from __init__ import *
+from . import *
 
 
 @labeling_function()

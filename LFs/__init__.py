@@ -9,3 +9,5 @@ from snorkel.labeling import labeling_function, PandasLFApplier, LFAnalysis
 
 from util import *
 
+from .n0_bat_dong_san import *
+from .n1_duoc_pham import *

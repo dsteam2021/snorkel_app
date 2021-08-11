@@ -1,4 +1,4 @@
-from __init__ import *
+from . import *
 
 # Huy
 @labeling_function()

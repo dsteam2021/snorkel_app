@@ -1,4 +1,4 @@
-from __init__ import *
+from . import *
 
 
 # Huy - có cả nhãn 9-(in ấn xuất bản)
