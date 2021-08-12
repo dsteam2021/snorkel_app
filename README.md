@@ -26,3 +26,9 @@ def keyword_0(x):
 
 lfs = [keyword_0]
 ```
+# Thêm params:
+* Chỉnh trong file parameter.py
+# Cách chạy:
+```
+python main.py --data_path {đường dẫn đến file chứa dữ liệu, default='data/'} --file_name {tên file trong data_path, default: 'train.csv'}
+```
