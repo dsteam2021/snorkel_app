@@ -5,3 +5,24 @@
 * Comment trên đầu các LFs tên của mình để dễ quản lý
 * Có một list nhỏ ở cuối file, điền tên lfs bạn viết vào list đó là được (ví dụ: lfs = [keyword_0])
 * Hãy nhớ Try-Catch để tránh lỗi nhé
+'''
+# Huy
+@labeling_function()
+def keyword_0(x):
+    try:
+        if x['check_btype'] == 'Bất động sản':
+            keyword = ['tiền thuế', 'phí']
+            keyword.extend(convert(keyword))
+            for i in keyword:
+                if i in x['name_cleaned']: 
+                    return 0
+        elif x['check_btype'] != 'Bất động sản':
+            pass
+    except: 
+        # print(x)
+        pass
+        
+    return -1
+
+lfs = [keyword_0]
+'''
