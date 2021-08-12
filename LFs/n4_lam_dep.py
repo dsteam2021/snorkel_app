@@ -1,4 +1,5 @@
 from . import *
+from .util import convert
 
 
 # Huy
@@ -12,7 +13,13 @@ def keyword_4(x):
                     return 4
         elif x['check_btype'] != 'Dịch vụ chăm sóc sức khỏe, sắc đẹp':
             pass
-    except:
-        print(x)
+    except: 
+        # print(x)
+        pass
         
     return -1
+
+lfs = [keyword_4]
+
+def get_lfs():
+    return lfs

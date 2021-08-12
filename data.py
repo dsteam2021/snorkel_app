@@ -9,11 +9,11 @@ from parameter import get_args
 
 args = get_args()
 
-def load_data(args, file_name):
-    data_path = os.path.join(args.data_path, file_name)
+def load_data(args):
+    data_path = os.path.join(args.data_path, args.file_name)
     df = pd.read_csv(data_path)
 
-    if ('train' in file_name):
+    if ('train' in args.file_name):
         le = preprocessing.LabelEncoder()
         label = le.fit_transform(df['label'].unique())
 

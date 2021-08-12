@@ -1,4 +1,5 @@
 from . import *
+from .util import convert
 
 
 # Huy
@@ -10,7 +11,13 @@ def keyword_6(x):
         for i in keyword:
             if i in x['name_cleaned']:
                 return 6
-    except:
-        print(x)
+    except: 
+        # print(x)
+        pass
         
     return -1
+
+lfs = [keyword_6]
+
+def get_lfs():
+    return lfs

@@ -1,4 +1,5 @@
 from . import *
+from .util import convert
 
 
 # Huy - có cả nhãn 9-(in ấn xuất bản)
@@ -15,7 +16,13 @@ def keyword_8(x):
                     return 9 # in ấn
                 else:
                     return 8
-    except:
-        print(x)
+    except: 
+        # print(x)
+        pass
     
     return -1
+
+lfs = [keyword_8]
+
+def get_lfs():
+    return lfs

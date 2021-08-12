@@ -1,4 +1,5 @@
 from . import *
+from .util import convert
 
 
 @labeling_function()
@@ -13,7 +14,13 @@ def pattern_5(x):
             return 5
         elif re.search('dich vu.*lao dong', x['name_cleaned'], flgs=re.I):
             return 5
-    except:
-        print(x)
+    except: 
+        # print(x)
+        pass
         
     return -1
+
+lfs = [pattern_5]
+
+def get_lfs():
+    return lfs

@@ -1,9 +1,10 @@
 from . import *
+from .util import convert
 
 
 # Huy
 @labeling_function()
-def key_word_1(x):
+def keyword_1(x):
     try:
         if x['check_btype'] == 'Dược phẩm':
             keyword = ['thuốc', 'dược']
@@ -23,6 +24,12 @@ def key_word_1(x):
         elif x['check_btype'] != 'Dược phẩm':
             pass
     except: 
-        print(x)
+        # print(x)
+        pass
         
     return -1
+
+lfs = [keyword_1]
+
+def get_lfs():
+    return lfs

@@ -1,4 +1,5 @@
 from . import *
+from .util import convert
 
 
 # Huy
@@ -31,6 +32,12 @@ def pattern_7(x):
         elif re.search('dịch vụ.*du lịch', x['name_cleaned'], flags=re.I):
             return 7
     except: 
-        print(x)
+        # print(x)
+        pass
         
     return -1
+
+lfs = [keyword_7, pattern_7]
+
+def get_lfs():
+    return lfs

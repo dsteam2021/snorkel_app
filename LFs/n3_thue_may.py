@@ -1,4 +1,6 @@
 from . import *
+from .util import convert
+
 
 # Huy
 @labeling_function()
@@ -25,7 +27,14 @@ def pattern_3(x):
             return 3
         elif re.search('phi thue.*may', x['name_cleaned'], flags=re.I):
             return 3
-    except:
-        print(x)
+    except: 
+        # print(x)
+        pass
 
     return -1
+
+
+lfs = [keyword_3, pattern_3]
+
+def get_lfs():
+    return lfs

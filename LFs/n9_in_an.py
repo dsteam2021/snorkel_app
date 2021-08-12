@@ -1,4 +1,5 @@
 from . import *
+from .util import convert
 
 
 # Huy
@@ -16,7 +17,13 @@ def keyword_9(x):
                         return 9
                 else:
                     return 9
-    except:
-        print(x)
+    except: 
+        # print(x)
+        pass
     
     return -1
+
+lfs = [keyword_9]
+
+def get_lfs():
+    return lfs
