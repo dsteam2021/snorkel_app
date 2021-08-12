@@ -5,7 +5,7 @@
 * Comment trên đầu các LFs tên của mình để dễ quản lý
 * Có một list nhỏ ở cuối file, điền tên lfs bạn viết vào list đó là được (ví dụ: lfs = [keyword_0])
 * Hãy nhớ Try-Catch để tránh lỗi nhé
-'''
+```
 # Huy
 @labeling_function()
 def keyword_0(x):
@@ -25,4 +25,4 @@ def keyword_0(x):
     return -1
 
 lfs = [keyword_0]
-'''
+```
