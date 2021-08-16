@@ -14,8 +14,9 @@ df_pair3 = pd.read_csv("\Pattent_data\pair_word_apriori_3_hangnt.csv")
 
 df_pair1['items'] = df_pair1['items'].swifter.apply(convert_stringlist_to_list)
 df_pair2['items'] = df_pair2['items'].swifter.apply(convert_stringlist_to_list)
+df_pair3['items'] = df_pair3['items'].swifter.apply(convert_stringlist_to_list)
 
-df_pair1 = pd.concat([df_pair1, df_pair2], ignore_index=True)
+df_pair1 = pd.concat([df_pair1, df_pair2, df_pair3], ignore_index=True)
 
 @labeling_function()
 def pattent_for_career_1(x):
