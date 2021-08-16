@@ -4,7 +4,6 @@ from LFs import *
 from data import load_data
 from parameter import get_args
 
-
 if __name__ == "__main__":
     args = get_args()
 
