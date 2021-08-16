@@ -1,5 +1,20 @@
 # snorkel_app
 
+## Cấu trúc
+```
+├── data                        # Folder dữ liệu
+|   ├── train.csv
+|   ├── test.csv
+├── LFs                         # Folder chứa Labeling Functions
+|   ├── n0_bat_dong_san.py
+|   ├── ...
+|   └── util.py
+├── data.py                     # Module load dữ liệu (có thể thêm xử lý, v.v...)
+├── main.py                     # Train, Analyst
+├── parameter.py                # Module chứa các tham số cần khi chạy
+└── README.md
+```
+
 ## Cách viết LFs:
 * Tạo file LFs với nhãn tương ứng: n{số nhãn theo LabelEncoder}_tên nhãn.py (ví dụ: n0_bat_dong_san.py)
 * Comment trên đầu các LFs tên của mình để dễ quản lý
