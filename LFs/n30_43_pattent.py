@@ -21,3 +21,8 @@ def pattent_for_career_1(x):
         if set(pair_word) <= set(x.name_cleaned.split()):
             return label
     return -1
+
+lfs = [pattent_for_career_1]
+
+def get_lfs():
+    return lfs
