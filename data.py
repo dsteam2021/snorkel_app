@@ -24,6 +24,8 @@ def load_data(args):
         
         print(dict_temp)
 
+    df.fillna(0, inplace=True)
+
     return df
 
 # load_data(args, 'train.csv')
