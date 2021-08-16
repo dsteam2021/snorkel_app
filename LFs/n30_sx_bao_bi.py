@@ -1,7 +1,8 @@
 #author=hanghust
 
 from snorkel.labeling import labeling_function
-
+from snorkel.preprocess.nlp import SpacyPreprocessor
+spacy = SpacyPreprocessor(text_field="text", doc_field="doc", memoize=True)
 
 @labeling_function(pre=[spacy])
 def company_sx_bao_bi_30(x):

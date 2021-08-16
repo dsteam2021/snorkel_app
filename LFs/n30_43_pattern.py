@@ -4,6 +4,9 @@ from snorkel.labeling import labeling_function
 import pandas as pd
 import swifter
 import ast
+from snorkel.preprocess.nlp import SpacyPreprocessor
+spacy = SpacyPreprocessor(text_field="text", doc_field="doc", memoize=True)
+
 
 def convert_stringlist_to_list(s):
     return ast.literal_eval(s)
