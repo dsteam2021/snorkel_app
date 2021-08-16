@@ -10,9 +10,9 @@ def keyword_5(x):
 @labeling_function()
 def pattern_5(x):
     try:
-        if re.search('dịch vụ.*lao động', x['name_cleaned'], flgs=re.I):
+        if re.search('dịch vụ.*lao động', x['name_cleaned'], flags=re.I):
             return 5
-        elif re.search('dich vu.*lao dong', x['name_cleaned'], flgs=re.I):
+        elif re.search('dich vu.*lao dong', x['name_cleaned'], flags=re.I):
             return 5
     except: 
         # print(x)
