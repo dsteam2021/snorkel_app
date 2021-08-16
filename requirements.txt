@@ -1,3 +1,4 @@
+spacy
+swifter
 snorkel
 unidecode
-swifter
