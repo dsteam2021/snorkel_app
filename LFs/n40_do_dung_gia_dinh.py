@@ -2,7 +2,7 @@
 
 from snorkel.labeling import labeling_function
 from snorkel.preprocess.nlp import SpacyPreprocessor
-spacy = SpacyPreprocessor(text_field="text", doc_field="doc", memoize=True)
+spacy = SpacyPreprocessor(text_field="name_cleaned", doc_field="doc", memoize=True)
 
 @labeling_function(pre=[spacy])
 def do_dung_gia_dinh_40(x):

@@ -2,10 +2,10 @@
 
 from snorkel.labeling import labeling_function
 from snorkel.preprocess.nlp import SpacyPreprocessor
-spacy = SpacyPreprocessor(text_field="text", doc_field="doc", memoize=True)
+spacy_cn = SpacyPreprocessor(text_field="company_name", doc_field="doc", memoize=True)
 
 
-@labeling_function(pre=[spacy])
+@labeling_function(pre=[spacy_cn])
 def company_thuc_pham_34(x):
     thuc_pham_cn =  set(['thực_phẩm', 'foods', 'siêu_thị', 'chợ'])
     if any(substring in x.company_name.split() for substring in thuc_pham_cn):

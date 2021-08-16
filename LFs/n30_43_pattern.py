@@ -5,7 +5,7 @@ import pandas as pd
 import swifter
 import ast
 from snorkel.preprocess.nlp import SpacyPreprocessor
-spacy = SpacyPreprocessor(text_field="text", doc_field="doc", memoize=True)
+spacy = SpacyPreprocessor(text_field="name_cleaned", doc_field="doc", memoize=True)
 
 
 def convert_stringlist_to_list(s):

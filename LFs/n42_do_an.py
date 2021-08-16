@@ -3,7 +3,8 @@
 
 from snorkel.labeling import labeling_function
 from snorkel.preprocess.nlp import SpacyPreprocessor
-spacy = SpacyPreprocessor(text_field="text", doc_field="doc", memoize=True)
+spacy = SpacyPreprocessor(text_field="name_cleaned", doc_field="doc", memoize=True)
+spacy_cn = SpacyPreprocessor(text_field="company_name", doc_field="doc", memoize=True)
 
 @labeling_function(pre=[spacy])
 def do_an_42(x):
@@ -15,7 +16,7 @@ def do_an_42(x):
         return 42
     return -1
 
-@labeling_function(pre=[spacy])
+@labeling_function(pre=[spacy_cn])
 def company_do_an_42(x):
     do_an_cn = set(['nhà_hàng', 'ăn_uống', 'dinh_dưỡng'])
     if any(substring in x.company_name.split() for substring in do_an_cn):
