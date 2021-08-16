@@ -1,3 +1,6 @@
+from . import *
+
+
 #Khiem
 @labeling_function()
 def dichvuvantai_0(x):

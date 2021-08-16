@@ -1,3 +1,6 @@
+from . import *
+
+
 #Khiêm
 @labeling_function() 
 def kimhoan_0(x):

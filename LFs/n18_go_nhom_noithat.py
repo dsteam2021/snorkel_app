@@ -1,3 +1,6 @@
+from . import *
+
+
 #Khiêm
 @labeling_function()
 def gonhomtbi_0(x):

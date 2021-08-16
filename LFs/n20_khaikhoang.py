@@ -1,3 +1,6 @@
+from . import *
+
+
 #Khiêm
 @labeling_function()
 def khaikhoang_0(x):
