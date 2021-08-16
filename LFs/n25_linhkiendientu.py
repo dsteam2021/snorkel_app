@@ -5,8 +5,10 @@ from . import *
 @labeling_function()
 def vitinhlinhkien_0(x):
     #keywords - parttern
+    if "phí thuê" in x['name_cleaned'] and "chi phí thuê" in x['name_cleaned']:
+        return -1
     keywords = ['màn hình', 'vi tính', 'máy tính', 'điều khiển', 'mực in', 'máy in', 'định tuyến', 'vô tuyến', 'thu phát', 'mạch chính',
-                'dây chuyển', 'cổng chuyển', 'ổ cứng']
+                'dây chuyển', 'cổng chuyển', 'ổ cứng', 'cảm biến', 'mực photocopy', 'máy photocopy', "bàn phím"]
     for each in keywords:
         if each in x['name_cleaned']:
             return 25
@@ -15,7 +17,7 @@ def vitinhlinhkien_0(x):
 @labeling_function()
 def vitinhlinhkien_1(x):
     #keywords 
-    keywords = ['logitech', 'fuhlen', 'dell', 'asus', 'genius', 'acer', 'cpu', 'gpu', 'core', 'dlink', 'usb', 'hdmi', 'vga']
+    keywords = ['logitech', 'fuhlen', 'dell', 'asus', 'genius', 'acer', 'cpu', 'gpu', 'core', 'dlink', 'usb', 'hdmi', 'vga', 'ibm', "cạc"]
     keywords = {each:0 for each in keywords}
     arr_words = x['name_cleaned'].split()
     for each in arr_words:
@@ -23,7 +25,16 @@ def vitinhlinhkien_1(x):
             return 25
     return -1
 
-lfs = [vitinhlinhkien_0, vitinhlinhkien_1]
+@labeling_function()
+def vitinhlinhkien_2(x):
+    #firstword
+    keywords = ['pin', 'đtdđ', 'điện thoại']   
+    for each in keywords:
+        if re.search("^" + each, x['name_cleaned']):
+            return 25
+    return -1
+
+lfs = [vitinhlinhkien_0, vitinhlinhkien_1, vitinhlinhkien_2]
 
 def get_lfs():
     return lfs 

@@ -14,6 +14,8 @@ def dichvuvesinh_0(x):
 @labeling_function()
 def dichvuvesinh_1(x):
   #compName
+  if pd.isnull(x['company_name']):
+    return -1
   if "môi trường" in x['company_name']:
     return 16
   return -1
