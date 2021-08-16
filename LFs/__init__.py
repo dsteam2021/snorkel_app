@@ -6,7 +6,7 @@ import pandas as pd
 from unidecode import unidecode
 from snorkel.labeling.model import LabelModel
 from snorkel.labeling import labeling_function, PandasLFApplier, LFAnalysis
-
+from snorkel.labeling.apply.dask import PandasParallelLFApplier
 
 lfs = []
 # n0_bat_dong_san.py -> n0_bat_dong_san

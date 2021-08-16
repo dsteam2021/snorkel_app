@@ -9,7 +9,8 @@ if __name__ == "__main__":
 
     # lfs: List  các labeling function ở LFs
     applier = PandasLFApplier(lfs=lfs) 
-    L_train = applier.apply(df=load_data(args), progress_bar=True)
+    # applier = PandasParallelLFApplier(lfs)
+    L_train = applier.apply(df=load_data(args))
 
     L_analyst = LFAnalysis(L=L_train, lfs=lfs).lf_summary()
     print(L_analyst)

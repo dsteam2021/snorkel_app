@@ -7,7 +7,7 @@ from .util import convert
 def keyword_1(x):
     try:
         if x['check_btype'] == 'Dược phẩm':
-            keyword = ['thuốc', 'dược']
+            keyword = ['thuốc', 'dược', 'viên']
             for i in keyword:
                 if i in x['name_cleaned']: 
                     return 1

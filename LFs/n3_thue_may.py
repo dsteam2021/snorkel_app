@@ -15,7 +15,8 @@ def keyword_3(x):
         elif x['check_btype'] != 'Máy móc, thiết bị cơ khí, kim khí':
             pass
     except:
-        print(x)
+        # print(x)
+        pass
         
     return -1
 

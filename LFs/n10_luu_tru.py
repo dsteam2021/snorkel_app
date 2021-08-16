@@ -17,7 +17,17 @@ def keyword_10(x):
 
     return -1
 
-lfs = [keyword_10]
+# Huy
+@labeling_function()
+def pattern_10(x):
+    if re.search('dịch vụ.*phòng', x['name_cleaned']):
+      return 10
+    elif re.search('dịch vụ.*nghỉ', x['name_cleaned']):
+      return 10  
+
+    return -1
+
+lfs = [keyword_10, pattern_10]
 
 def get_lfs():
     return lfs

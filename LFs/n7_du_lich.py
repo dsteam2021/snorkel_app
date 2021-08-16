@@ -6,14 +6,10 @@ from .util import convert
 @labeling_function()
 def keyword_7(x):
     try:
-        keyword = ['dịch vụ', 'du lịch', 'tour']
-        keyword.extend(convert(keyword))
-        if x['check_btype'] == 'Dịch vụ du lịch':
-            for i in keyword:
-                if i in x['name_cleaned']:
-                    return 7
-        elif x['check_btype'] != 'Dịch vụ du lịch':
-            pass
+        keyword = ['du lịch', 'tour']
+        for i in keyword:
+            if i in x['name_cleaned']:
+                return 7
     except:
         print(x)
 
