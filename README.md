@@ -22,6 +22,8 @@
 * Có một list nhỏ ở cuối file, điền tên lfs bạn viết vào list đó là được (ví dụ: lfs = [keyword_0])
 * Hãy nhớ Try-Catch để tránh lỗi nhé
 ```
+from . import *
+
 # Huy
 @labeling_function()
 def keyword_0(x):
