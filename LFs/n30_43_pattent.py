@@ -1,3 +1,5 @@
+#author=hanghust
+
 from snorkel.labeling import labeling_function
 import pandas as pd
 import swifter
@@ -25,4 +27,8 @@ def pattent_for_career_1(x):
 lfs = [pattent_for_career_1]
 
 def get_lfs():
+<<<<<<< HEAD
     return lfs
+=======
+    return lfs 
+>>>>>>> labeling function for sx bao bi --> do an
