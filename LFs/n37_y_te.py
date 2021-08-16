@@ -2,7 +2,7 @@
 
 from snorkel.labeling import labeling_function
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def y_te_37(x):
     y_te = set(['khám', 'kiểm_dịch', 'xét_nghiệm', 'sức_khỏe', 'siêu_âm', 'giám_định', 'xquang', 'bệnh', 'điều_trị', 'pcr', 'viện_phí', 'nội_soi', 'phẫu_thuật', 'nhổ', 'cột_sống', 'tủy', 'phổi', 
         'tế_bào', 'họng',  'igg', 'nước_tiểu', 'tổng_phân_tích','điện_tim', 'vết_thương', 'khâu', 'ung_thư', 'hiv', 'chuyên_khoa', 'thắt_lưng'])
@@ -10,7 +10,7 @@ def y_te_37(x):
         return 37
     return -1
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def company_y_te_37(x):
     y_te_cn = set(['bệnh_viện', 'đa_khoa', 'phòng_khám', 'pháp_y', 'y_khoa', 'tâm_thần', 'bệnh_tật', 'kiểm_dịch', 'phục_hồi', 'cấp_cứu', 'chỉnh_hình', 'nam_khoa', 'sức_khỏe',
            'bác_sĩ', 'nha_khoa', 'trị_liệu', 'thú_y', 'y_học'])

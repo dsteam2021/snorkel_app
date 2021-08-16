@@ -4,7 +4,7 @@
 from snorkel.labeling import labeling_function
 
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def do_an_42(x):
     do_an = set(['kem', 'kẹo', 'socola', 'nướng', 'bánh_quy', 'cơm', 'xào', 'chiên', 'ăn_uống', 'snack', 'chocolate', 'dừa',
             'bánh_mì', 'phô_mai', 'cosy', 'lẩu', 'hải_sản', 'vani', 'merino', 'trái_cây', 'đậu_phộng', 'đậu_xanh', 'choco', 
@@ -14,7 +14,7 @@ def do_an_42(x):
         return 42
     return -1
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def company_do_an_42(x):
     do_an_cn = set(['nhà_hàng', 'ăn_uống', 'dinh_dưỡng'])
     if any(substring in x.company_name.split() for substring in do_an_cn):

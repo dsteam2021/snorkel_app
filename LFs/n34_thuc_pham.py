@@ -4,7 +4,7 @@ from snorkel.labeling import labeling_function
 
 
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def company_thuc_pham_34(x):
     thuc_pham_cn =  set(['thực_phẩm', 'foods', 'siêu_thị', 'chợ'])
     if any(substring in x.company_name.split() for substring in thuc_pham_cn):

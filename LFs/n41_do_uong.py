@@ -2,7 +2,7 @@
 
 from snorkel.labeling import labeling_function
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def do_uong_41(x):
     do_uong = set(['rượu', 'sữa', 'trà', 'bia', 'rượu_vang', 'sauvignon', 'cabernet', 'vinamilk', 'tiger', 'scu', 'milk', 'sting', 'soda', 'pepsi', 'sleek', 'chateau', 'tea', 'sữa_tươi', 'blanc', 'cà_phê', 'heineken', 'siro', 'sinh_tố', 'bia_lon', 
            'coca', 'nước_ngọt', 'milo', 'chardonnay', 'coke', 'merlot', 'vodka', 'wine', 'syrup', 'cafe', 'nước_khoáng', 'twister', 'vfresh', 'lavie', 'fanta', 'lipton', 'nestle', 'orange', 'đậu_nành', 'nescafe', 'susu', 'reserva', 'whisky', 'pinot', 'nhựa', 'can', 'bia_chai', 'sprite', 'mirinda', 'nước_giải_khát', 'shiraz', 'special', 'adm', 'hạt', 'sđn', 'chivas', 'green', 'coffee', 'probi', 
@@ -11,7 +11,7 @@ def do_uong_41(x):
         return 41
     return -1
 
-@labeling_function()
+@labeling_function(pre=[spacy])
 def company_do_uong_41(x):
     do_uong_cn = set(['rượu', 'uống'])
     if any(substring in x.company_name.split() for substring in do_uong_cn):
