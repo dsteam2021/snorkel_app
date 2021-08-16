@@ -10,7 +10,7 @@ def convert_stringlist_to_list(s):
 
 df_pair1 = pd.read_csv("LFs/Pattent_data/pair_word_apriori_1_hangnt.csv")
 df_pair2 = pd.read_csv("LFs/Pattent_data/pair_word_apriori_2_hangnt.csv")
-# df_pair3 = pd.read_csv("\Pattent_data\pair_word_apriori_3_hangnt.csv")
+df_pair3 = pd.read_csv("LFs/Pattent_data/pair_word_apriori_3_hangnt.csv")
 
 df_pair1['items'] = df_pair1['items'].swifter.apply(convert_stringlist_to_list)
 df_pair2['items'] = df_pair2['items'].swifter.apply(convert_stringlist_to_list)
@@ -28,8 +28,4 @@ def pattent_for_career_1(x):
 lfs = [pattent_for_career_1]
 
 def get_lfs():
-<<<<<<< HEAD
     return lfs
-=======
-    return lfs 
->>>>>>> labeling function for sx bao bi --> do an
