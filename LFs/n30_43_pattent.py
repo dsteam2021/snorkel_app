@@ -1,3 +1,5 @@
+#author=hanghust
+
 from snorkel.labeling import labeling_function
 import pandas as pd
 import swifter
@@ -20,3 +22,8 @@ def pattent_for_career_1(x):
         if set(pair_word) <= set(x.name_cleaned.split()):
             return label
     return -1
+
+lfs = [pattent_for_career_1]
+
+def get_lfs():
+    return lfs 
