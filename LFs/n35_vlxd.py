@@ -8,7 +8,7 @@ spacy = SpacyPreprocessor(text_field="name_cleaned", doc_field="doc", memoize=Tr
 def vlxd_35(x):
     vlxd =  set(['sơn', 'gạch', 'pvc', 'xi_măng', 'ppr', 'upvc', 'hdpe', 'bê_tông', 'ngói', 'xịt', 'tường', 'lavabo', 'cát', 'bệt', 'thạch_cao', 'ốp_lát', 'nội_thất', 'ngoại_thất', 'dekko', 'bồn_cầu',
             'vòi_sen', 'gạch_men', 'granite', 'dulux', 'sika'])
-    if any(substring in x.name_cleaned.split() for substring in vlxd):
+    if any(substring in x.name_cleaned for substring in vlxd):
         return 35
     return -1
 
