@@ -7,8 +7,11 @@ spacy_cn = SpacyPreprocessor(text_field="company_name", doc_field="doc", memoize
 @labeling_function(pre=[spacy_cn])
 def company_sx_bao_bi_30(x):
     sx_bao_bi_cn = set(['bao_bì', 'nhãn_mác'])
-    if any(substring in x.company_name for substring in sx_bao_bi_cn):
-        return 30
+    # if any(substring in x.company_name for substring in sx_bao_bi_cn):
+    #     return 30
+    for substring in sx_bao_bi_cn:
+        if substring in x.company_name:
+            return 30
     return -1
 
 lfs = [company_sx_bao_bi_30]
