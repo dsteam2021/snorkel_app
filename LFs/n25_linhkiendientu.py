@@ -8,7 +8,8 @@ def vitinhlinhkien_0(x):
     if "phí thuê" in x['name_cleaned'] and "chi phí thuê" in x['name_cleaned']:
         return -1
     keywords = ['màn hình', 'vi tính', 'máy tính', 'điều khiển', 'mực in', 'máy in', 'định tuyến', 'vô tuyến', 'thu phát', 'mạch chính',
-                'dây chuyển', 'cổng chuyển', 'ổ cứng', 'cảm biến', 'mực photocopy', 'máy photocopy', "bàn phím"]
+                'dây chuyển', 'cổng chuyển', 'ổ cứng', 'cảm biến', 'mực photocopy', 'máy photocopy', "bàn phím", 'ổ nguồn', "ổ đĩa",
+                'chuyển mạch', 'bộ nhớ', 'bộ điện thoại', 'thẻ nhớ', 'mạch chuyển']
     for each in keywords:
         if each in x['name_cleaned']:
             return 25
@@ -17,7 +18,7 @@ def vitinhlinhkien_0(x):
 @labeling_function()
 def vitinhlinhkien_1(x):
     #keywords 
-    keywords = ['logitech', 'fuhlen', 'dell', 'asus', 'genius', 'acer', 'cpu', 'gpu', 'core', 'dlink', 'usb', 'hdmi', 'vga', 'ibm', "cạc"]
+    keywords = ['switch', 'logitech', 'fuhlen', 'dell', 'asus', 'genius', 'msi', 'acer', 'cpu', 'gpu', 'core', 'dlink', 'usb', 'hdmi', 'vga', 'ibm', "cạc", "loghitech", "lenovo"]
     keywords = {each:0 for each in keywords}
     arr_words = x['name_cleaned'].split()
     for each in arr_words:
@@ -28,7 +29,8 @@ def vitinhlinhkien_1(x):
 @labeling_function()
 def vitinhlinhkien_2(x):
     #firstword
-    keywords = ['pin', 'đtdđ', 'điện thoại']   
+    keywords = ['pin', 'đtdđ', 'điện thoại', 'đầu ghi', 'camera', 'bộ camera', "bàn phím", "chip", "chíp", "máy quét", "máy tính", "cáp",
+                "dây cáp", "điện trở", "máy điện trở", "card", "micro", "bộ micro", "tai nghe"]   
     for each in keywords:
         if re.search("^" + each, x['name_cleaned']):
             return 25
