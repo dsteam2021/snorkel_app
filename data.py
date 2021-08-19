@@ -25,7 +25,8 @@ def load_data(args):
         print(dict_temp)
 
     df.fillna('0', inplace=True)
+    num_of_label = len(dict_temp.keys())
 
-    return df
+    return df, num_of_label
 
 # load_data(args, 'train.csv')
