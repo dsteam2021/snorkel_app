@@ -19,14 +19,17 @@ def gomsu_1(x):
 @labeling_function()
 def gomsu_2(x):
   #pair keywords
+  remove_words = ["nước rửa", "lau kính"]
+  for each in remove_words:
+      if each in x['name_cleaned']:
+          return -1
   keywords_1 = {"kính": -1, "bát": -1, "ly": -1, "lọ": -1, "cốc": -1, "dĩa": -1, "đĩa": -1, "tách": -1, "chén": -1, "bình": -1, "ấm": -1}
   # keywords_2 = {"gốm": -1, "sứ": -1, "thủy": -1}
   arr_words = x['name_cleaned'].split()
-  for i in range(len(arr_words)):
+  for i in range(len(arr_words[:2])):
       if arr_words[i] in keywords_1:
          return 17
   return -1
-
 lfs = [gomsu_1, gomsu_2]
 
 def get_lfs():

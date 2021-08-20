@@ -9,7 +9,7 @@ def vitinhlinhkien_0(x):
         return -1
     keywords = ['màn hình', 'vi tính', 'máy tính', 'điều khiển', 'mực in', 'máy in', 'định tuyến', 'vô tuyến', 'thu phát', 'mạch chính',
                 'dây chuyển', 'cổng chuyển', 'ổ cứng', 'cảm biến', 'mực photocopy', 'máy photocopy', "bàn phím", 'ổ nguồn', "ổ đĩa",
-                'chuyển mạch', 'bộ nhớ', 'bộ điện thoại', 'thẻ nhớ', 'mạch chuyển']
+                'chuyển mạch', 'bộ nhớ', 'bộ điện thoại', 'thẻ nhớ', 'mạch chuyển', "không dây"]
     for each in keywords:
         if each in x['name_cleaned']:
             return 25
@@ -18,7 +18,7 @@ def vitinhlinhkien_0(x):
 @labeling_function()
 def vitinhlinhkien_1(x):
     #keywords 
-    keywords = ['switch', 'logitech', 'fuhlen', 'dell', 'asus', 'genius', 'msi', 'acer', 'cpu', 'gpu', 'core', 'dlink', 'usb', 'hdmi', 'vga', 'ibm', "cạc", "loghitech", "lenovo"]
+    keywords = ['switch', 'logitech', 'fuhlen', 'dell', 'asus', 'genius', 'msi', 'acer', 'cpu', 'gpu', 'core', 'dlink', 'usb', 'hdmi', 'vga', 'ibm', "cạc", "loghitech", "lenovo", "micro"]
     keywords = {each:0 for each in keywords}
     arr_words = x['name_cleaned'].split()
     for each in arr_words:
