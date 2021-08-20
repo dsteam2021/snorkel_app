@@ -10,9 +10,12 @@ def vlxd_35(x):
             'vòi_sen', 'gạch_men', 'granite', 'dulux', 'sika'])
     # if any(substring in x.name_cleaned for substring in vlxd):
     #     return 35
-    for substring in vlxd:
-        if substring in x.name_cleaned:
-            return 35
+    try:
+        for substring in vlxd:
+            if substring in x.name_cleaned:
+                return 35
+    except:
+        return -1
     return -1
 
 lfs = [vlxd_35]

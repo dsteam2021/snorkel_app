@@ -14,9 +14,12 @@ def do_an_42(x):
             'súp', 'chua_cay', 'thập_cẩm', 'phomai', 'cheese', 'sầu_riêng', 'cốm', 'mật_ong', 'hạnh_nhân', 'bánh_tráng', 'cháo'])
     # if any(substring in x.name_cleaned for substring in do_an):
     #     return 42
-    for substring in do_an:
-        if substring in x.name_cleaned:
-            return 42
+    try:
+        for substring in do_an:
+            if substring in x.name_cleaned:
+                return 42
+    except:
+        return -1
     return -1
 
 @labeling_function(pre=[spacy_cn])
@@ -24,9 +27,12 @@ def company_do_an_42(x):
     do_an_cn = set(['nhà_hàng', 'ăn_uống', 'dinh_dưỡng'])
     # if any(substring in x.company_name for substring in do_an_cn):
     #     return 42
-    for substring in do_an_cn:
-        if substring in x.company_name:
-            return 42
+    try:
+        for substring in do_an_cn:
+            if substring in x.company_name:
+                return 42
+    except:
+        return -1
     return -1
 
 lfs = [do_an_42, company_do_an_42]

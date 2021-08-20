@@ -23,9 +23,12 @@ df_pair1 = pd.concat([df_pair1, df_pair2, df_pair3], ignore_index=True)
 
 @labeling_function(pre=[spacy])
 def pattent_for_career_1(x):
-    for pair_word, label in zip(df_pair1['items'], df_pair1['label_encode']):
-        if set(pair_word).issubset(set(x.name_cleaned.split())):
-            return label
+    try:
+        for pair_word, label in zip(df_pair1['items'], df_pair1['label_encode']):
+            if set(pair_word).issubset(set(x.name_cleaned.split())):
+                return label
+    except:
+        return -1
     return -1
 
 lfs = [pattent_for_career_1]

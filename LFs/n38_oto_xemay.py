@@ -11,9 +11,12 @@ def oto_xemay_38(x):
              'santafe', 'sirius', 'ôtô', 'kia', 'ford', 'isuzu', 'tucson', 'thaco', 'espero', 'mazda', 'sym', 'exciter', 'alpha', 'winnerx', 'xpander', 'fortuner', 'sedan', 'winner'])
     # if any(substring in x.name_cleaned for substring in oto_xemay):
     #     return 38
-    for substring in oto_xemay:
-        if substring in x.name_cleaned:
-            return 38
+    try:
+        for substring in oto_xemay:
+            if substring in x.name_cleaned:
+                return 38
+    except:
+        return -1
     return -1
 
 @labeling_function(pre=[spacy_cn])
@@ -21,9 +24,12 @@ def company_oto_xemay_38(x):
     oto_xemay_cn = set(['ô_tô', 'xe_máy', 'hyundai', 'toyota', 'ôtô', 'xe_đạp', 'mô_tô', 'motors', 'daehan'])
     # if any(substring in x.company_name for substring in oto_xemay_cn):
     #     return 38
-    for substring in oto_xemay_cn:
-        if substring in x.company_name:
-            return 38
+    try:
+        for substring in oto_xemay_cn:
+            if substring in x.company_name:
+                return 38
+    except:
+        return -1
     return -1
 
 

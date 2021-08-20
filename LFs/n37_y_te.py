@@ -11,9 +11,12 @@ def y_te_37(x):
         'tế_bào', 'họng',  'igg', 'nước_tiểu', 'tổng_phân_tích','điện_tim', 'vết_thương', 'khâu', 'ung_thư', 'hiv', 'chuyên_khoa', 'thắt_lưng'])
     # if any(substring in x.name_cleaned for substring in y_te):
     #     return 37
-    for substring in y_te:
-        if substring in x.name_cleaned:
-            return 37
+    try:
+        for substring in y_te:
+            if substring in x.name_cleaned:
+                return 37
+    except:
+        return -1
     return -1
 
 @labeling_function(pre=[spacy_cn])
@@ -22,9 +25,12 @@ def company_y_te_37(x):
            'bác_sĩ', 'nha_khoa', 'trị_liệu', 'thú_y', 'y_học'])
     # if any(substring in x.company_name for substring in y_te_cn):
     #     return 37
-    for substring in y_te_cn:
-        if substring in x.company_name:
-            return 37
+    try:
+        for substring in y_te_cn:
+            if substring in x.company_name:
+                return 37
+    except:
+        return -1
     return -1
 
 lfs = [y_te_37, company_y_te_37]

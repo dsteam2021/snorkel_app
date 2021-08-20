@@ -12,9 +12,12 @@ def do_uong_41(x):
                    'nescafe', 'susu', 'reserva', 'whisky', 'pinot', 'bia_chai', 'sprite', 'mirinda', 'nước_giải_khát', 'shiraz', 'special', 'chivas', 'coffee', 'probi', 'revive', 'aquafina', 'sirô', 'bordeaux', 'oolong', 'latte', 'monin'])
     # if any(substring in x.name_cleaned for substring in do_uong):
     #     return 41
-    for substring in do_uong:
-        if substring in x.name_cleaned:
-            return 41
+    try:
+        for substring in do_uong:
+            if substring in x.name_cleaned:
+                return 41
+    except:
+        return -1
     return -1
 
 @labeling_function(pre=[spacy_cn])
@@ -22,9 +25,12 @@ def company_do_uong_41(x):
     do_uong_cn = set(['rượu', 'uống'])
     # if any(substring in x.company_name for substring in do_uong_cn):
     #     return 41
-    for substring in do_uong_cn:
-        if substring in x.company_name:
-            return 41
+    try:
+        for substring in do_uong_cn:
+            if substring in x.company_name:
+                return 41
+    except:
+        return -1
     return -1
 
 lfs = [do_uong_41, company_do_uong_41]
