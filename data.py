@@ -22,11 +22,7 @@ def load_data(args):
         for i, j in zip(df['label'].unique(), label):
             dict_temp[j] = i
         
-        print(dict_temp)
-
     df.fillna('0', inplace=True)
     num_of_label = len(dict_temp.keys())
 
-    return df, num_of_label
-
-# load_data(args, 'train.csv')
+    return df, num_of_label, dict_temp

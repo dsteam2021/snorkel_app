@@ -1,12 +1,12 @@
 import os
 import time
 import datetime
-date = datetime.datetime.now()
+date = str(datetime.datetime.now())
 
 from LFs import *
 from LFs import lfs
 from data import load_data
-from util import save_result
+from util import save_result, plot_overlap
 from parameter import get_args
 
 from snorkel.labeling.model import LabelModel
@@ -24,6 +24,7 @@ def get_L(args, df, lfs):
 
     return L_train, L_analyst
 
+
 def get_label(args, num_of_label, L_train):
     # Dùng major vote hoặc label_model để tìm nhãn
     if args.major_vote:
@@ -40,11 +41,12 @@ def get_label(args, num_of_label, L_train):
 
     return y_preds
 
+
 if __name__ == "__main__":
     args = get_args()
     start = time.time()
 
-    df, num_of_label = load_data(args)
+    df, num_of_label, dict_temp = load_data(args)
 
     L_train, L_analyst = get_L(args, df, lfs)
     
@@ -54,4 +56,5 @@ if __name__ == "__main__":
 
     print(time.time() - start)
 
-    save_result(date, L_train, L_analyst, df)
+    save_result(args, date, L_train, L_analyst, df)
+    plot_overlap(args, date, df, L_train, L_analyst, dict_temp)
