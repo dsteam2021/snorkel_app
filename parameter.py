@@ -9,7 +9,7 @@ def get_args():
     parser.add_argument('--file_name', type=str, default='train.csv', help='file name data')
 
     # L_train
-    parser.add_argument('--core', type=int, default=1, help='core to run parallel')
+    parser.add_argument('--core', type=int, default=6, help='core to run parallel')
 
     # Snorkel
     parser.add_argument('--major_vote', action='store_true', help='Majority Vote Snorkel')
