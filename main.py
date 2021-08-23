@@ -1,5 +1,8 @@
 import os
 import time
+import datetime
+date = datetime.datetime.now()
+
 
 from LFs import *
 from util import *
@@ -26,4 +29,4 @@ if __name__ == "__main__":
 
     print(time.time() - start)
 
-    save_result(start, L_train, L_analyst, df)
+    save_result(date, L_train, L_analyst, df)
