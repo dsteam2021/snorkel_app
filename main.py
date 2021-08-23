@@ -16,11 +16,12 @@ from snorkel.labeling.model import MajorityLabelVoter
 def get_L(args, df, lfs):
     if args.core == 1: 
         # lfs: List  các labeling function ở LFs
-        applier = PandasLFApplier(lfs=lfs) 
+        applier = PandasLFApplier(lfs=lfs)
+        L_train = applier.apply(df=df)
     elif args.core > 1: 
-        applier = PandasParallelLFApplier(lfs, n_parallel=args.core)
+        applier = PandasParallelLFApplier(lfs)
+        L_train = applier.apply(df=df, n_parallel=args.core)
         
-    L_train = applier.apply(df=df)
     L_analyst = LFAnalysis(L=L_train, lfs=lfs).lf_summary()
 
     return L_train, L_analyst
