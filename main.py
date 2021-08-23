@@ -19,6 +19,7 @@ def get_L(args, df, lfs):
         applier = PandasLFApplier(lfs=lfs) 
     elif args.core > 1: 
         applier = PandasParallelLFApplier(lfs, n_parallel=args.core)
+        
     L_train = applier.apply(df=df)
     L_analyst = LFAnalysis(L=L_train, lfs=lfs).lf_summary()
 
@@ -54,7 +55,7 @@ if __name__ == "__main__":
 
     df['label_snorkel'] = y_preds
 
-    print(time.time() - start)
+    print("Time consuming: {}".format(time.time() - start))
 
     save_result(args, date, L_train, L_analyst, df)
     plot_overlap(args, date, df, L_train, L_analyst, dict_temp)

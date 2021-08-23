@@ -2,3 +2,4 @@ spacy
 swifter
 snorkel
 unidecode
+dask distributed
