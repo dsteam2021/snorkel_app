@@ -58,7 +58,7 @@ def plot_overlap(args, time, df: pd.DataFrame, L_train, L_analyst, dict_temp):
     if not os.path.exists(os.path.join('result', time)):
         if not os.path.exists('result'):
             os.mkdir('result')
-        os.mkdir(os.path.join('result', time))
+        Path(os.path.join('result', time)).mkdir(parents=True)
 
     f = open(os.path.join('result', time, 'overlap.txt'), 'a')
 
