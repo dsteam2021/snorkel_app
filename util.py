@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 from pathlib import Path
+import json
 
 
 def save_result(args, time, L_train, L_analyst, df):
@@ -72,3 +73,21 @@ def plot_overlap(args, time, df: pd.DataFrame, L_train, L_analyst, dict_temp):
             f.write('*' * 100 + '\n')
     
     f.close()
+
+def get_result(df):
+    list_unique = df['label'].unique()
+    list_unique = {each:{"match": 0, "total": 0, "error": {}} for each in list_unique}
+    def getMatch(lb, lb_snor):
+        list_unique[lb]['total'] += 1
+        if lb == lb_snor:
+            list_unique[lb]['match'] += 1
+        else:
+            if lb_snor not in list_unique[lb]['error']:
+                list_unique[lb]['error'][lb_snor] = 0
+            list_unique[lb]['error'][lb_snor] += 1
+    np.vectorize(getMatch)(df['label'], df['label_snorkel'])
+    if not os.path.isdir('result'):
+        os.mkdir('result')
+    with open('result/result.json', 'w', encoding='utf8') as fp:
+         json.dump(list_unique, fp, ensure_ascii=False)
+    return

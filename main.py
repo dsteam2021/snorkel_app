@@ -6,7 +6,7 @@ date = str(datetime.datetime.now())
 from LFs import *
 from LFs import lfs
 from data import load_data
-from util import save_result, plot_overlap
+from util import get_result, save_result, plot_overlap
 from parameter import get_args
 
 from snorkel.labeling.model import LabelModel
@@ -58,5 +58,6 @@ if __name__ == "__main__":
 
     print("Time consuming: {}".format(time.time() - start))
 
+    get_result(df)
     save_result(args, date, L_train, L_analyst, df)
     plot_overlap(args, date, df, L_train, L_analyst, dict_temp)
