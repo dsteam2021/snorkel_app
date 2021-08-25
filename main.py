@@ -18,6 +18,8 @@ if __name__ == "__main__":
     start = time.time()
     
     df, num_of_label, dict_temp = load_data(args)
+    
+    print('Num of label: {}'.format(num_of_label))
 
     if args.core == 1: 
         # lfs: List  các labeling function ở LFs
