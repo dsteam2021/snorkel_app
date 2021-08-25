@@ -7,7 +7,7 @@ date = str(datetime.datetime.now())
 from LFs import *
 from LFs import lfs
 from data import load_data
-from util import get_result, save_result, plot_overlap
+from util import get_result, save_result, plot_overlap, plot_result
 from parameter import get_args
 
 from snorkel.labeling.model import LabelModel
@@ -51,3 +51,4 @@ if __name__ == "__main__":
     # get_result(df)
     df_new = save_result(args, date, L_train, L_analyst, df, y_preds, dict_temp)
     plot_overlap(args, date, df, L_train, L_analyst, dict_temp)
+    plot_result(args, date, df_new)
