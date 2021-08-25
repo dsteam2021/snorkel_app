@@ -42,12 +42,8 @@ def save_result(args, time, L_train, L_analyst, df, y_preds, dict_temp):
         if (len(j) == 0):
             empty_lfs.append(list_of_lfs[i])
 
-    # Coverage
-    coverage = L_analyst.Coverage.sum()
-
     print('-' * 100)
     print('Empty LFs: {}, over {} lfs, empty {:.2f} %'.format(empty_lfs, number_of_lfs, len(empty_lfs) / number_of_lfs))
-    print('Coverage:  {:.2f} %'.format(coverage))    
 
     return df
 
@@ -96,9 +92,9 @@ def plot_result(args, time, df: pd.DataFrame):
     df_temp = df[df['label_snorkel'] != -1]
 
     # 'Unknow': unlabeled data
-    coverage = len(df[df['label_snorkel'] != 'Unknow']) / len(df)
-    accuracy_1 = len(df[df['label_snorkel'] == df['label']]) / len(df)
-    accuracy_2 = len(df_temp[df_temp['label_snorkel'] == df_temp['label']]) / len(df)
+    coverage = len(df[df['label_snorkel'] != 'Unknow']) / len(df) * 100
+    accuracy_1 = len(df[df['label_snorkel'] == df['label']]) / len(df) * 100
+    accuracy_2 = len(df_temp[df_temp['label_snorkel'] == df_temp['label']]) / len(df) * 100
 
     print('Coverage:                    {:.2f} %'.format(coverage))
     print('Accuracy over all dataset:   {:.2f} %'.format(accuracy_1))
