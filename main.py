@@ -1,4 +1,5 @@
 import os
+import sys
 import time
 import datetime
 date = str(datetime.datetime.now())
@@ -20,6 +21,8 @@ if __name__ == "__main__":
     df, num_of_label, dict_temp = load_data(args)
     
     print('Num of label: {}'.format(num_of_label))
+
+    # sys.exit()
 
     if args.core == 1: 
         # lfs: List  các labeling function ở LFs

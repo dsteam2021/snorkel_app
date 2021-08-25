@@ -46,7 +46,7 @@ def save_result(args, time, L_train, L_analyst, df, y_preds, dict_temp):
     coverage = L_analyst.Coverage.sum()
 
     print('-' * 100)
-    print('Empty LFs: {}, over {} lfs, empty {}%'.format(empty_lfs, number_of_lfs, empty_lfs / number_of_lfs))
+    print('Empty LFs: {}, over {} lfs, empty {}%'.format(empty_lfs, number_of_lfs, len(empty_lfs) / number_of_lfs))
     print('Coverage:  {}%'.format(coverage))    
 
     return df
