@@ -10,7 +10,7 @@ spacy = SpacyPreprocessor(text_field="name_cleaned", doc_field="doc", memoize=Tr
 
 def convert_stringlist_to_list(s):
     return ast.literal_eval(s)
-df_pair = pd.read_csv("LFs\Pattent_data\pair_word_apriori_hangnt.csv")
+df_pair = pd.read_csv("LFs/Pattent_data/pair_word_apriori_hangnt.csv")
 # df_pair1 = pd.read_csv("LFs/Pattent_data/pair_word_apriori_1_hangnt.csv")
 # df_pair2 = pd.read_csv("LFs/Pattent_data/pair_word_apriori_2_hangnt.csv")
 # df_pair3 = pd.read_csv("LFs/Pattent_data/pair_word_apriori_3_hangnt.csv")
