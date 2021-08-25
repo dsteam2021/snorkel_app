@@ -22,7 +22,7 @@ def load_data(args):
     df = pd.read_csv(data_path)
 
     if args.num_test > 0:
-        df = df[:args.num_test]
+        df = df.sample(args.num_test)
 
     if ('train' in args.file_name):
         le = preprocessing.LabelEncoder()
