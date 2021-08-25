@@ -25,4 +25,4 @@ def load_data(args):
     df.fillna('0', inplace=True)
     num_of_label = len(dict_temp.keys())
 
-    return df, num_of_label, dict_temp
+    return df[:1000], num_of_label, dict_temp

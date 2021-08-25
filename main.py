@@ -56,6 +56,6 @@ if __name__ == "__main__":
 
     print("Time consuming: {}".format(time.time() - start))
 
-    get_result(df)
+    # get_result(df)
     save_result(args, date, L_train, L_analyst, df)
     plot_overlap(args, date, df, L_train, L_analyst, dict_temp)
