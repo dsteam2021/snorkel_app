@@ -46,8 +46,8 @@ def save_result(args, time, L_train, L_analyst, df, y_preds, dict_temp):
     coverage = L_analyst.Coverage.sum()
 
     print('-' * 100)
-    print('Empty LFs: {}, over {} lfs, empty {}%'.format(empty_lfs, number_of_lfs, len(empty_lfs) / number_of_lfs))
-    print('Coverage:  {}%'.format(coverage))    
+    print('Empty LFs: {}, over {} lfs, empty {:.2f} %'.format(empty_lfs, number_of_lfs, len(empty_lfs) / number_of_lfs))
+    print('Coverage:  {:.2f} %'.format(coverage))    
 
     return df
 
@@ -100,9 +100,9 @@ def plot_result(args, time, df: pd.DataFrame):
     accuracy_1 = len(df[df['label_snorkel'] == df['label']]) / len(df)
     accuracy_2 = len(df_temp[df_temp['label_snorkel'] == df_temp['label']]) / len(df)
 
-    print('Coverage:                    {}'.format(coverage))
-    print('Accuracy over all dataset:   {}'.format(accuracy_1))
-    print('Accuracy over all labeled:   {}'.format(accuracy_2))
+    print('Coverage:                    {:.2f} %'.format(coverage))
+    print('Accuracy over all dataset:   {:.2f} %'.format(accuracy_1))
+    print('Accuracy over all labeled:   {:.2f} %'.format(accuracy_2))
 
     if not os.path.exists(os.path.join('result', time)):
         if not os.path.exists('result'):
@@ -111,12 +111,13 @@ def plot_result(args, time, df: pd.DataFrame):
 
     f = open(os.path.join('result', time, 'result.txt'), 'a')
 
-    f.write('Coverage:                    {}\n'.format(coverage))
-    f.write('Accuracy over all dataset:   {}\n'.format(accuracy_1))
-    f.write('Accuracy over all labeled:   {}\n'.format(accuracy_2))
+    f.write('Coverage:                    {:.2f} %\n'.format(coverage))
+    f.write('Accuracy over all dataset:   {:.2f} %\n'.format(accuracy_1))
+    f.write('Accuracy over all labeled:   {:.2f} %\n'.format(accuracy_2))
 
     f.close()
 
+    
 def get_result(df):
     list_unique = df['label'].unique()
     list_unique = {each:{"match": 0, "total": 0, "error": {}} for each in list_unique}
