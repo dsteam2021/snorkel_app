@@ -7,6 +7,7 @@ def get_args():
     # Load data
     parser.add_argument('--data_path', type=str, default='data/', help='folder data')
     parser.add_argument('--file_name', type=str, default='train.csv', help='file name data')
+    parser.add_argument('--num_test', type=int, default=-1, help='numer of data point to test')
 
     # L_train
     parser.add_argument('--core', type=int, default=6, help='core to run parallel')

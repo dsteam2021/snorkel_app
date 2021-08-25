@@ -15,6 +15,15 @@ from snorkel.labeling.model import MajorityLabelVoter
 
 if __name__ == "__main__":
     def get_L(args, df, lfs):
+        """
+        Args:
+            args:
+            df: (pd.DataFrame) data
+            lfs: (list) list labeling function get from LFS/__init__.py
+        Return:
+            L_train: (np.array) output of labeling function, has shape (n, m): (data point, number labeling functions)
+            L_analyst: (pd.DataFrame) 
+        """
         if args.core == 1: 
             # lfs: List  các labeling function ở LFs
             applier = PandasLFApplier(lfs=lfs)
@@ -28,6 +37,14 @@ if __name__ == "__main__":
         return L_train, L_analyst
     
     def get_label(args, num_of_label, L_train):
+        """
+        Args:
+            args:
+            num_of_label: (int) number labels
+            L_train: (np.array) output of labeling function, has shape (n, m): (data point, number labeling functions)
+        Return:
+            y_preds: (np.array) predicted output by Snorkel after get L_train, has shape (data point, )
+        """
         # Dùng major vote hoặc label_model để tìm nhãn
         if args.major_vote:
             majority_model = MajorityLabelVoter()
@@ -52,10 +69,8 @@ if __name__ == "__main__":
     
     y_preds = get_label(args, num_of_label, L_train)
 
-    df['label_snorkel'] = y_preds
-
     print("Time consuming: {}".format(time.time() - start))
 
     # get_result(df)
-    save_result(args, date, L_train, L_analyst, df)
+    df_new = save_result(args, date, L_train, L_analyst, df, y_preds, dict_temp)
     plot_overlap(args, date, df, L_train, L_analyst, dict_temp)

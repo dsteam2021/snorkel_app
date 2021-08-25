@@ -10,8 +10,19 @@ from parameter import get_args
 args = get_args()
 
 def load_data(args):
+    """
+    Args:
+        args: 
+    Return:
+        df: (pd.DataFrame) data
+        num_of_label: (int) number of labels
+        dict_temp: (dictionary) ví dụ (keys, values): (0, "Bất động sản")
+    """
     data_path = os.path.join(args.data_path, args.file_name)
     df = pd.read_csv(data_path)
+
+    if args.num_test > 0:
+        df = df[:args.num_test]
 
     if ('train' in args.file_name):
         le = preprocessing.LabelEncoder()
