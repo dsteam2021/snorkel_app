@@ -112,6 +112,7 @@ def plot_result(args, time, df: pd.DataFrame, dict_temp):
     f.write('Accuracy over all dataset:   {:.2f} %\n'.format(accuracy_1))
     f.write('Accuracy over all labeled:   {:.2f} %\n'.format(accuracy_2))
     f.write('*' * 100)
+    f.write('\n')
 
     for i in dict_temp.keys():
         if i == -1:
