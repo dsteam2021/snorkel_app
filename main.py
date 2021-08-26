@@ -51,4 +51,4 @@ if __name__ == "__main__":
     # get_result(df)
     df_new = save_result(args, date, L_train, L_analyst, df, y_preds, dict_temp)
     plot_overlap(args, date, df, L_train, L_analyst, dict_temp)
-    plot_result(args, date, df_new)
+    plot_result(args, date, df_new, dict_temp)

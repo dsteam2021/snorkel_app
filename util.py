@@ -79,22 +79,23 @@ def plot_overlap(args, time, df: pd.DataFrame, L_train, L_analyst, dict_temp):
     f.close()
 
 
-def plot_result(args, time, df: pd.DataFrame):
+def plot_result(args, time, df: pd.DataFrame, dict_temp):
     """
     Args:
         args:
         time: (String) datetime create file
         df: (pd.DataFrame) data
+        dict_temp: (dictionary) ví dụ (keys, values): (0, "Bất động sản")
     Return:
         None
     """
     # df_temp: data point labeled by Snorkel
-    df_temp = df[df['label_snorkel'] != -1]
+    df_temp = df[df['label_snorkel'] != 'Unknow']
 
     # 'Unknow': unlabeled data
     coverage = len(df[df['label_snorkel'] != 'Unknow']) / len(df) * 100
     accuracy_1 = len(df[df['label_snorkel'] == df['label']]) / len(df) * 100
-    accuracy_2 = len(df_temp[df_temp['label_snorkel'] == df_temp['label']]) / len(df) * 100
+    accuracy_2 = len(df_temp[df_temp['label_snorkel'] == df_temp['label']]) / len(df_temp) * 100
 
     print('Coverage:                    {:.2f} %'.format(coverage))
     print('Accuracy over all dataset:   {:.2f} %'.format(accuracy_1))
@@ -110,6 +111,26 @@ def plot_result(args, time, df: pd.DataFrame):
     f.write('Coverage:                    {:.2f} %\n'.format(coverage))
     f.write('Accuracy over all dataset:   {:.2f} %\n'.format(accuracy_1))
     f.write('Accuracy over all labeled:   {:.2f} %\n'.format(accuracy_2))
+    f.write('*' * 100)
+
+    for i in dict_temp.keys():
+        if i == -1:
+            continue
+        f.write('{}:\n'.format(dict_temp[i]))
+        # df_temp: data point labeled by Snorkel
+        df_labeled = df[df['label'] == dict_temp[i]]
+
+        # 'Unknow': unlabeled data
+        coverage = len(df_labeled[df_labeled['label_snorkel'] != 'Unknow']) / len(df_labeled) * 100
+        accuracy = len(df_labeled[df_labeled['label_snorkel'] == dict_temp[i]]) / len(df_labeled) * 100
+
+        df_temp = df_labeled[df_labeled['label_snorkel'] != 'Unknow']
+        conflict = len(df_temp[df_temp['label_snorkel'] != dict_temp[i]]) / len(df_labeled) * 100
+
+        f.write('\tCoverage:            {:.2f} %\n'.format(coverage))
+        f.write('\tAccuracy:            {:.2f} %\n'.format(accuracy))
+        f.write('\tConflict:            {:.2f} %\n'.format(conflict))
+        f.write('\n')
 
     f.close()
 
