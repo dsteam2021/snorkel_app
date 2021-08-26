@@ -16,7 +16,7 @@ def gasdau_0(x):
 def gasdau_1(x):
     try:
         #units and check_btype
-        if np.isnan(x['unit_clean']) or x['check_btype'] != 'Kinh doanh gas, xăng dầu':
+        if x['check_btype'] != 'Kinh doanh gas, xăng dầu':
             return -1
         keywords = ['l', 'lít', 'lit', 'ml', 'thùng', 'lon', 'can']
         for each in keywords:
