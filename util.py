@@ -121,6 +121,8 @@ def plot_result(args, time, df: pd.DataFrame, dict_temp):
         # df_temp: data point labeled by Snorkel
         df_labeled = df[df['label'] == dict_temp[i]]
 
+        another_labeled_by_snorkel = df_labeled[df_labeled['label_snorkel'] != dict_temp[i]]['label_snorkel'].unique()
+
         # 'Unknow': unlabeled data
         coverage = len(df_labeled[df_labeled['label_snorkel'] != 'Unknow']) / len(df_labeled) * 100
         accuracy = len(df_labeled[df_labeled['label_snorkel'] == dict_temp[i]]) / len(df_labeled) * 100
@@ -130,7 +132,7 @@ def plot_result(args, time, df: pd.DataFrame, dict_temp):
 
         f.write('\tCoverage:            {:.2f} %\n'.format(coverage))
         f.write('\tAccuracy:            {:.2f} %\n'.format(accuracy))
-        f.write('\tConflict:            {:.2f} %\n'.format(conflict))
+        f.write('\tConflict:            {:.2f} % ({})\n'.format(conflict, another_labeled_by_snorkel))
         f.write('\n')
 
     f.close()
